@@ -1,15 +1,15 @@
-import numpy as np
-import scipy.integrate as spi
-import matplotlib.pyplot as plt
-from dataclasses import dataclass
-from pathlib import Path
-
 """
 Fourier approximation of Gaussian pulse trains.
 
 This script studies how the number of Fourier terms required for a good
 approximation depends on the ratio P / delta_t.
 """
+
+import numpy as np
+import scipy.integrate as spi
+import matplotlib.pyplot as plt
+from dataclasses import dataclass
+from pathlib import Path
 
 # =============================================================================
 # Configuration
