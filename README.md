@@ -1,4 +1,4 @@
-# Fourier Series Approximator
+“Fourier Series Approximation of Gaussian Pulse Trains”
 
 ## Introduction
 
