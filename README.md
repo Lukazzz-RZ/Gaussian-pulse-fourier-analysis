@@ -1,4 +1,4 @@
-#Fourier Series Approximation of Gaussian Pulse Trains
+# Fourier Series Approximation of Gaussian Pulse Trains
 
 ## Introduction
 
