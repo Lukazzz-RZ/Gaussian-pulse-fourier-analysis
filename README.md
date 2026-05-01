@@ -1,6 +1,6 @@
 # Gaussian Pulse Fourier Analysis
 
-## 📌 Introduction
+## Introduction
 
 This project explores the numerical approximation of Gaussian pulse trains using Fourier series.
 
@@ -19,7 +19,7 @@ The study focuses on time-domain reconstruction and error analysis.
 
 ---
 
-## 📊 Fourier series approximation
+## Fourier series approximation
 
 The Fourier series of the signal is computed numerically, and the approximation is compared with the original Gaussian pulse train.
 
@@ -36,7 +36,7 @@ The figure shows how the approximation converges as the number of terms increase
 
 ---
 
-## 📉 Convergence analysis
+## Convergence analysis
 
 The approximation error is evaluated using different metrics:
 
@@ -53,7 +53,7 @@ The approximation error is evaluated using different metrics:
 
 ---
 
-## 📈 Results
+## Results
 
 Empirically, the number of terms required for a good approximation follows:
 
@@ -73,7 +73,7 @@ m \approx \frac{P}{2 \Delta t}
 
 ---
 
-## 🧪 Signal behavior
+## Signal behavior
 
 Gaussian pulse trains with different widths illustrate the relationship between time-domain localization and spectral complexity:
 
@@ -86,7 +86,7 @@ Gaussian pulse trains with different widths illustrate the relationship between 
 
 ---
 
-## ⚙️ Usage
+## Usage
 
 Install dependencies:
 
@@ -102,7 +102,7 @@ python fourier_gaussian_pulse.py
 
 ---
 
-## 📁 Project structure
+## Project structure
 
 ```
 .
@@ -116,7 +116,7 @@ python fourier_gaussian_pulse.py
 
 ---
 
-## 🏁 Conclusion
+## Conclusion
 
 The accuracy of the Fourier approximation is governed primarily by the ratio (P / \Delta t), rather than by the absolute period.
 
