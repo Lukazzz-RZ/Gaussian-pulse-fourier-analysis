@@ -1,53 +1,127 @@
-# Fourier-Series-aproximator
+# Gaussian Pulse Fourier Analysis
 
-## Introducción (ES)
+## 📌 Introduction
 
-Este proyecto aborda la resolución numérica de problemas relacionados con ondas electromagnéticas, incluyendo la representación gráfica de la respuesta en frecuencia y el análisis de desarrollos en series de Fourier para trenes de pulsos gaussianos. 
+This project explores the numerical approximation of Gaussian pulse trains using Fourier series.
 
----
+The main objective is to analyze how the number of Fourier terms required for an accurate reconstruction depends on the ratio:
 
-## Representación gráfica de la respuesta en frecuencia
+[
+\frac{P}{\Delta t}
+]
 
-### Observaciones:
-- Para un período fijo, cuanto menor es la anchura de la gaussiana, menor es la respuesta en frecuencia para un armónico dado.
-- En el caso de \(m = 0\), la respuesta en frecuencia está determinada únicamente por el coeficiente de reducción de anchura del medio (\(n\)).
+where:
 
-### Gráficos:
+* (P) is the signal period
+* (\Delta t) is the width of the Gaussian pulse
 
-Se han representado las respuestas en frecuencia frente al número de armónicos para diferentes valores del cociente \(P/\Delta t\), mostrando cómo varían los resultados en función de los parámetros del sistema.
-![Respeusta en frecuencia para distintos parámetros Gaussianos](FreqResp.jpg)
-
-## Desarrollo en serie de Fourier
-
-Se utilizó Python para determinar la cantidad de términos necesarios para representar un tren de pulsos gaussianos mediante un desarrollo en serie de Fourier. La comparación se realizó tomando un período fijo y variando la anchura de la gaussiana.
-
-### Observaciones:
-1. Cuanto menor es la anchura de la gaussiana, mayor será el número de términos necesarios para una aproximación correcta.
-2. La similitud entre la función original y su serie de Fourier comienza a ser notable alrededor de \(m \approx P / (2 \cdot \Delta t)\).
-
-### Resultados:
-| \(P/\Delta t\) | Número de términos necesarios para aproximación correcta |
-|----------------|--------------------------------------------------------|
-| 10            | 5                                                      |
-| 20            | 10                                                     |
-| 30            | 15                                                     |
-| 40            | 20                                                     |
-| 50            | 25                                                     |
-
-#### Conclusión:
-El número de términos necesarios para una aproximación correcta es independiente del período mientras se mantenga constante el cociente entre el período y la anchura de la gaussiana (\(P / \Delta t\)).
+The study focuses on time-domain reconstruction and error analysis.
 
 ---
 
-## Ilustraciones
-![Aproximación por serie de Fourier](GaussianPulse.jpg)
-### Ejemplo de pulsos gaussianos:
-1. Pulso gaussiano para \(P/\Delta t = 10\)
-2. Pulso gaussiano para \(P/\Delta t = 20\)
-3. Pulso gaussiano para \(P/\Delta t = 50\)
+## 📊 Fourier series approximation
+
+The Fourier series of the signal is computed numerically, and the approximation is compared with the original Gaussian pulse train.
+
+### Observations:
+
+* For a fixed period, narrower Gaussian pulses (smaller (\Delta t)) require more Fourier terms.
+* The approximation improves progressively as higher-frequency components are included.
+
+### Example:
+
+![Fourier approximation](figures/fourier_approximations.png)
+
+The figure shows how the approximation converges as the number of terms increases.
 
 ---
 
-## Conclusión
+## 📉 Convergence analysis
 
-Se ha demostrado que la relación \(m \approx P / (2 \cdot \Delta t)\) es válida para obtener una aproximación adecuada en desarrollos de series de Fourier de trenes de pulsos gaussianos, especialmente bajo la condición \(\Delta t \ll P\). Este análisis proporciona una herramienta útil para estudiar fenómenos relacionados con la respuesta en frecuencia de sistemas electromagnéticos y sus aproximaciones mediante series de Fourier.
+The approximation error is evaluated using different metrics:
+
+* Maximum absolute error
+* Mean squared error
+* Relative (L^2) error
+
+![Error evolution](figures/error_evolution.png)
+
+### Observations:
+
+1. The error decreases as more Fourier terms are included.
+2. Convergence is slower for narrower pulses due to their higher frequency content.
+
+---
+
+## 📈 Results
+
+Empirically, the number of terms required for a good approximation follows:
+
+[
+m \approx \frac{P}{2 \Delta t}
+]
+
+### Example values:
+
+| (P/\Delta t) | Required Fourier terms |
+| ------------ | ---------------------- |
+| 10           | 5                      |
+| 20           | 10                     |
+| 30           | 15                     |
+| 40           | 20                     |
+| 50           | 25                     |
+
+---
+
+## 🧪 Signal behavior
+
+Gaussian pulse trains with different widths illustrate the relationship between time-domain localization and spectral complexity:
+
+![Pulse width comparison](figures/pulse_width_comparison.png)
+
+### Observations:
+
+* Narrow pulses → broader frequency spectrum → more Fourier terms required
+* Wider pulses → smoother signal → fewer terms needed
+
+---
+
+## ⚙️ Usage
+
+Install dependencies:
+
+```bash
+pip install numpy scipy matplotlib
+```
+
+Run the script:
+
+```bash
+python fourier_gaussian_pulse.py
+```
+
+---
+
+## 📁 Project structure
+
+```
+.
+├── fourier_gaussian_pulse.py
+├── figures/
+│   ├── fourier_approximations.png
+│   ├── error_evolution.png
+│   └── pulse_width_comparison.png
+└── README.md
+```
+
+---
+
+## 🏁 Conclusion
+
+The accuracy of the Fourier approximation is governed primarily by the ratio (P / \Delta t), rather than by the absolute period.
+
+This reflects a fundamental property of Fourier analysis:
+
+> The spectral complexity of a signal is determined by its time-domain localization.
+
+This project provides a simple numerical framework to visualize and understand this relationship.
